@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html>
+<head><meta name="generator" content="Hexo 3.8.0">
+  <meta charset="utf-8">
+  
+
+  
+  <title>Online Stock Span | Gensōkyō</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+  <meta name="description" content="股價跨幅(持續更新)Leetcode 901Real-World Algorithms: A Beginner’s Guide CP112345678910111213141516171819class StockSpanner &amp;#123;public:    StockSpanner() &amp;#123;    &amp;#125;    int next(int price) &amp;#123;">
+<meta name="keywords" content="programming">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Online Stock Span">
+<meta property="og:url" content="https://kqalea.github.io/2019/04/11/Online-Stock-Span/index.html">
+<meta property="og:site_name" content="Gensōkyō">
+<meta property="og:description" content="股價跨幅(持續更新)Leetcode 901Real-World Algorithms: A Beginner’s Guide CP112345678910111213141516171819class StockSpanner &amp;#123;public:    StockSpanner() &amp;#123;    &amp;#125;    int next(int price) &amp;#123;">
+<meta property="og:locale" content="zh-tw">
+<meta property="og:updated_time" content="2019-04-11T08:36:05.925Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Online Stock Span">
+<meta name="twitter:description" content="股價跨幅(持續更新)Leetcode 901Real-World Algorithms: A Beginner’s Guide CP112345678910111213141516171819class StockSpanner &amp;#123;public:    StockSpanner() &amp;#123;    &amp;#125;    int next(int price) &amp;#123;">
+  
+    <link rel="alternate" href="/atom.xml" title="Gensōkyō" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png">
+  
+  
+    <link href="//fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet" type="text/css">
+  
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+</html>
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">Gensōkyō</a>
+      </h1>
+      
+        <h2 id="subtitle-wrap">
+          <a href="/" id="subtitle">現實與幻想的夾縫</a>
+        </h2>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+          <a id="nav-rss-link" class="nav-icon" href="/atom.xml" title="RSS Feed"></a>
+        
+        <a id="nav-search-btn" class="nav-icon" title="Search"></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="https://kqalea.github.io"></form>
+      </div>
+    </div>
+  </div>
+</header>
+      <div class="outer">
+        <section id="main"><article id="post-Online-Stock-Span" class="article article-type-post" itemscope="" itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2019/04/11/Online-Stock-Span/" class="article-date">
+  <time datetime="2019-04-11T08:36:05.000Z" itemprop="datePublished">2019-04-11</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/刷題/">刷題</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="article-title" itemprop="name">
+      Online Stock Span
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="股價跨幅"><a href="#股價跨幅" class="headerlink" title="股價跨幅"></a>股價跨幅</h1><h1 id="持續更新"><a href="#持續更新" class="headerlink" title="(持續更新)"></a>(持續更新)</h1><h4 id="Leetcode-901"><a href="#Leetcode-901" class="headerlink" title="Leetcode 901"></a>Leetcode 901</h4><h4 id="Real-World-Algorithms-A-Beginner’s-Guide-CP1"><a href="#Real-World-Algorithms-A-Beginner’s-Guide-CP1" class="headerlink" title="Real-World Algorithms: A Beginner’s Guide CP1"></a>Real-World Algorithms: A Beginner’s Guide CP1</h4><figure class="highlight cpp"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">StockSpanner</span> &#123;</span></span><br><span class="line"><span class="keyword">public</span>:</span><br><span class="line">    StockSpanner() &#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">int</span> <span class="title">next</span><span class="params">(<span class="keyword">int</span> price)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">int</span> span = <span class="number">1</span>;</span><br><span class="line">        <span class="keyword">while</span>(!mStack.empty() &amp;&amp; price &gt;= mStack.top().first)&#123;</span><br><span class="line">            span += mStack.top().second;</span><br><span class="line">            mStack.pop();</span><br><span class="line">        &#125;</span><br><span class="line">        mStack.emplace(price, span);</span><br><span class="line">        <span class="keyword">return</span> span;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"><span class="keyword">private</span>:</span><br><span class="line">    <span class="built_in">stack</span>&lt;pair&lt;<span class="keyword">int</span>, <span class="keyword">int</span>&gt;&gt; mStack;</span><br><span class="line">&#125;;</span><br></pre></td></tr></table></figure>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="https://kqalea.github.io/2019/04/11/Online-Stock-Span/" data-id="cjuce4mea0000lktqa1neaogd" class="article-share-link">Share</a>
+      
+      
+  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/programming/">programming</a></li></ul>
+
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/24/TwoSum/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">TwoSum</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/刷題/">刷題</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/閒聊/">閒聊</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tags</h3>
+    <div class="widget">
+      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/chat/">chat</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/programming/">programming</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Tag Cloud</h3>
+    <div class="widget tagcloud">
+      <a href="/tags/chat/" style="font-size: 10px;">chat</a> <a href="/tags/programming/" style="font-size: 20px;">programming</a>
+    </div>
+  </div>
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/04/">四月 2019</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2019/03/">三月 2019</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2019/04/11/Online-Stock-Span/">Online Stock Span</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/24/TwoSum/">TwoSum</a>
+          </li>
+        
+          <li>
+            <a href="/2019/03/06/Midlife-crisis/">Midlife Crisis</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      &copy; 2019 Kqalea<br>
+      Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+
+  <link rel="stylesheet" href="/fancybox/jquery.fancybox.css">
+  <script src="/fancybox/jquery.fancybox.pack.js"></script>
+
+
+<script src="/js/script.js"></script>
+
+
+
+  </div>
+</body>
+</html>
